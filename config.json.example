@@ -1,0 +1,41 @@
+{
+    "app_setting": {
+        "app_port": "4001",
+        "app_basic_auth_username": "user",
+        "app_basic_auth_password": "pass"
+    },
+    "webhook_setting": {
+        "github": {
+            "mapping": [
+                {
+                    "repo_name": "popular-repo",
+                    "branch_name": "main",
+                    "command": "echo hello"
+                },
+                {
+                    "repo_name": "popular-repo",
+                    "branch_name": "develop",
+                    "command": "ls -la"
+                }
+            ]
+        },
+        "gitlab": {
+            "mapping": [
+                {
+                    "repo_name": "",
+                    "branch_name": "",
+                    "command": ""
+                }
+            ]
+        },
+        "bitbucket": {
+            "mapping": [
+                {
+                    "repo_name": "",
+                    "branch_name": "",
+                    "command": ""
+                }
+            ]
+        }
+    }
+}
