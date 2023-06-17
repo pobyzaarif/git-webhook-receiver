@@ -78,15 +78,15 @@ func (s *service) Notif(ic business.InternalContext, spec WebhookNotifSpec) (err
 		return nil
 	}
 
-	// Execute the shell command
-	output, err := exec.Command("sh", "-c", command).CombinedOutput()
-	if err != nil {
-		logger.ErrorWithData("err exec command", map[string]interface{}{"command": command}, err)
-		return
-	}
-
-	res := fmt.Sprintf("Command output:\n%s", output)
-	logger.InfoWithData("ok", map[string]interface{}{"output": res})
+	go func() {
+		// Execute the shell command
+		output, err := exec.Command("sh", "-c", command).CombinedOutput()
+		if err != nil {
+			logger.ErrorWithData("err exec command", map[string]interface{}{"command": command}, err)
+		}
+		res := fmt.Sprintf("Command output:\n%s", output)
+		logger.InfoWithData("ok", map[string]interface{}{"output": res})
+	}()
 
 	return nil
 }
