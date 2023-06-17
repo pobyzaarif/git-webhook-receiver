@@ -31,4 +31,6 @@ func RegisterPath(
 
 	notification := e.Group(apiVersion+"/webhook_notification", basicAuthMiddleware)
 	notification.POST("/github", controller.GithubController)
+	notification.POST("/gitlab", controller.GitlabController)
+	notification.POST("/bitbucket", controller.BitbucketController)
 }

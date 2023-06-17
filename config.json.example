@@ -8,32 +8,42 @@
         "github": {
             "mapping": [
                 {
-                    "repo_name": "popular-repo",
+                    "repo_name": "popular-github-repo",
                     "branch_name": "main",
-                    "command": "echo hello"
+                    "command": "echo '[github] this is the trigger when main branch got pushed'"
                 },
                 {
-                    "repo_name": "popular-repo",
-                    "branch_name": "develop",
-                    "command": "ls -la"
+                    "repo_name": "popular-github-repo",
+                    "branch_name": "dev",
+                    "command": "echo '[github] hello dev' && ls -la"
                 }
             ]
         },
         "gitlab": {
             "mapping": [
                 {
-                    "repo_name": "",
-                    "branch_name": "",
-                    "command": ""
+                    "repo_name": "popular-gitlab-repo",
+                    "branch_name": "master",
+                    "command": "echo '[gitlab] this is the trigger when master branch got pushed'"
+                },
+                {
+                    "repo_name": "popular-gitlab-repo",
+                    "branch_name": "develop",
+                    "command": "echo '[gitlab] hello gitlab develop' >> test.txt && cat test.txt && rm test.txt"
                 }
             ]
         },
         "bitbucket": {
             "mapping": [
                 {
-                    "repo_name": "",
-                    "branch_name": "",
-                    "command": ""
+                    "repo_name": "popular-bitbucket-repo",
+                    "branch_name": "main",
+                    "command": "echo '[bitbucket] this is the trigger when main branch got pushed'"
+                },
+                {
+                    "repo_name": "popular-bitbucket-repo",
+                    "branch_name": "test",
+                    "command": "echo '[bitbucket] hello bitbucket test'"
                 }
             ]
         }
