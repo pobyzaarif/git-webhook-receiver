@@ -32,7 +32,11 @@ jobs:
           tag_name: ${{ github.ref }}
           release_name: Release ${{ steps.tag_version.outputs.version }}
           body: |
-            Description of the release.
+            new release.
+            Timestamp: ${{ github.event.head_commit.timestamp }}
+
+          draft: false
+          prerelease: false
 
       - name: Upload Linux Binary
         uses: actions/upload-release-asset@v1
