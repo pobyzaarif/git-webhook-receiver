@@ -49,7 +49,7 @@ func main() {
 		ctrl,
 	)
 
-	address := "0.0.0.0:" + conf.AppSetting.AppPort
+	address := fmt.Sprintf("%v:%v", conf.AppSetting.AppHost, conf.AppSetting.AppPort)
 	go func() {
 		if err := e.Start(address); err != http.ErrServerClosed {
 			logger.Fatal("failed on http server " + conf.AppSetting.AppPort)

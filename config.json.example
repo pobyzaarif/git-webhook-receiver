@@ -1,5 +1,6 @@
 {
     "app_setting": {
+        "app_host": "localhost",
         "app_port": "4001",
         "app_basic_auth_username": "user",
         "app_basic_auth_password": "pass"

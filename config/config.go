@@ -8,6 +8,7 @@ import (
 )
 
 type AppSetting struct {
+	AppHost              string `json:"app_host"`
 	AppPort              string `json:"app_port"`
 	AppBasicAuthUsername string `json:"app_basic_auth_username"`
 	AppBasicAuthPassword string `json:"app_basic_auth_password"`
