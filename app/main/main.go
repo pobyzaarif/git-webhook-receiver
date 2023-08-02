@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"flag"
 	"fmt"
 	"net/http"
 	"os"
@@ -21,9 +22,25 @@ import (
 	goLoggerEchoMiddlerware "github.com/pobyzaarif/go-logger/rest/framework/echo/v4/middleware"
 )
 
-var logger = goLogger.NewLog("MAIN")
+var (
+	logger = goLogger.NewLog("MAIN")
+
+	version   string
+	buildTime string
+	gitCommit string
+)
 
 func main() {
+	v := flag.Bool("v", false, "print version info")
+	flag.Parse()
+
+	if *v {
+		fmt.Println("Version: " + version)
+		fmt.Println("Build time: " + buildTime)
+		fmt.Println("Git commit: " + gitCommit)
+		return
+	}
+
 	conf := config.LoadConfig("./config.json")
 
 	e := echo.New()
