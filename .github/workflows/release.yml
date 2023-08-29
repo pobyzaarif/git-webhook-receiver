@@ -33,5 +33,5 @@ jobs:
         goarch: ${{ matrix.goarch }}
         project_path: "./app/main"
         binary_name: "git-webhook-receiver"
-        extra_files: config.json.example LICENSE README.md
+        extra_files: config.json.example LICENSE README.md download_latest.sh
         ldflags: -X "main.version=${{ env.APP_VERSION }}" -X "main.buildTime=${{ env.BUILD_TIME }}" -X main.gitCommit=${{ github.sha }}
